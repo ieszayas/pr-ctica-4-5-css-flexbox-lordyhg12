@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Layout con Flexbox</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+
+  /* Contenedor principal */
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  header, footer, nav, article, aside {
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  header {
+    background-color: #F0D280; /* tono amarillo */
+  }
+
+  footer {
+    background-color: #F0D280; /* tono amarillo */
+  }
+
+  nav, aside {
+    background-color: #C5C8F0; /* tono azulado */
+  }
+
+  article {
+    background-color: #C8C77F; /* tono verdoso */
+    flex: 1;
+  }
+
+  /* Layout en pantallas anchas: header arriba, luego nav | article | aside, y al final footer */
+  @media (min-width: 800px) {
+    .main {
+      display: flex;
+      flex: 1;
+    }
+    .main > nav {
+      flex: 0 0 20%;
+    }
+    .main > article {
+      flex: 1;
+    }
+    .main > aside {
+      flex: 0 0 20%;
+    }
+  }
+
+  /* Layout en pantallas pequeñas: se apilan en una sola columna */
+  @media (max-width: 799px) {
+    .main {
+      display: flex;
+      flex-direction: column;
+    }
+    /* En este modo, el orden será header, article, nav, aside, footer */
+    /* Podemos modificar el orden con 'order' si es necesario */
+    header {
+      order: 1;
+    }
+    article {
+      order: 2;
+    }
+    nav {
+      order: 3;
+    }
+    aside {
+      order: 4;
+    }
+    footer {
+      order: 5;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>header</header>
+  <div class="main">
+    <nav>nav</nav>
+    <article>article</article>
+    <aside>aside</aside>
+  </div>
+  <footer>footer</footer>
+</div>
+</body>
+</html>
