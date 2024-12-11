@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería de mascotas </title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      text-align: center;
+      background-color: gray;
+    }
+
+    .header {
+      width: 100%;
+      height: 20%;
+      background-color: black;
+      border: solid 3px rgb(202, 214, 29);
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-family: Arial, sans-serif;
+      font-size: 80px;
+      color: azure;
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      background-color: white;
+    }
+
+    .gallery div {
+      flex: 1 1 calc(33.33% - 10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      filter: grayscale(80%);
+      transition: filter 0.3s ease;
+    }
+
+    .gallery img:hover {
+      filter: none;
+    }
+
+    @media (max-width: 560px) {
+      .gallery div {
+        flex: 1 1 calc(50% - 10px);
+      }
+      body {
+        background-color: rgb(67, 30, 231);
+      }
+      .header {
+        width: 100%;
+        height: 20%;
+        background-color: rgb(102, 214, 51);
+        border: solid 3px rgb(202, 214, 29);
+      }
+      img:hover {
+        filter: blur(5px);
+      }
+    }
+
+    @media (max-width: 360px) {
+      .gallery div {
+        flex: 1 2 100%;
+        box-shadow: cornflowerblue;
+      }
+      body {
+        background-color: rgb(197, 194, 34);
+      }
+      .header {
+        width: 100%;
+        height: 20%;
+        background-color: rgb(182, 128, 27);
+        border: solid 3px rgb(202, 214, 29);
+      }
+      img:hover {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">  
+    <h1>Galería</h1> 
+  </div>
+  
+  <div class="gallery">
+    <div><img src="img/image1.jpg" width="300px" height="300px" ></div>
+    <div><img src="img/image2.jpg" alt="Imagen 2"></div>
+    <div><img src="img/image3.jpg" alt="Imagen 3"></div>
+    <div><img src="img/image4.jpg" alt="Imagen 4"></div>
+    <div><img src="img/image5.jpg" alt="Imagen 5"></div>
+    <div><img src="img/image6.jpg" alt="Imagen 6"></div>
+  </div>
+</body>
+</html>
